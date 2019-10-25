@@ -7,7 +7,6 @@
 `um2bs_gui` is a Python app that allows converting microscopy image files acquired with the Lavision BioTec Ultramicroscope to Big Stichter compatible Big Data viewer files. The stage positions in the files `Tiles.txt` are used to place the individual
 stacks in their correct position.
 
-Note that this project shares a lot of similarities with a similar project I created for Leica Matrix Screener files, including plenty of copy&pasted code. (It may make sense to combine these into one tool)
 
 ## Installation & Start
 
