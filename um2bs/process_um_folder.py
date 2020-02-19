@@ -102,17 +102,18 @@ class um_mosaic_folder:
         self.df = pd.DataFrame(self.tiffiles, columns=["pathname"])
         self.df["filename"] = self.df["pathname"].apply(lambda f: pathlib.Path(f).name)
 
-        def _extraxt_first_match_with_regex(regex, teststring):
+        def _extract_first_match_with_regex(regex, teststring):
             try:
                 return regex.findall(teststring)[0]
             except:
+                print(f"{regex} did not match {teststring}")
                 return ""
 
         for regexname in self.regexes.keys():
             if regexname != "filewhitelist":
                 print(f"Applying regex {regexname} to filenames.")
                 regex = re.compile(self.regexes[regexname])
-                _extract = partial(_extraxt_first_match_with_regex, regex)
+                _extract = partial(_extract_first_match_with_regex, regex)
                 self.df[regexname] = self.df["filename"].apply(_extract)
         # for column in ["Z","ch"]:
         #    self.df[column] = pd.to_numeric(self.df[column])
@@ -121,6 +122,7 @@ class um_mosaic_folder:
 
         # In order to identify Z-stacks we add a column with the filename of the first Z slice
         unique_z = self.df["Z"].unique()
+        print(unique_z)
         # numeric_unique_z  = list(map(int, unique_z))
         unique_z = sorted(unique_z, key=int)
         print(f"first z slice is {unique_z[0]}")
