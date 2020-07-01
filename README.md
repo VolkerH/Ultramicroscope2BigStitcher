@@ -14,13 +14,13 @@ Create a python environment using `conda` and install dependencies (only needed 
 
 * Install anaconda/miniconda
 * Start a terminal or cmd window
-* Create a new conda environment `conda env create -n um2bs python=3.6`
+* Create a new conda environment `conda create -n um2bs python=3.6`
 * Activate the environment `conda activate um2bs`
 * `conda install -c conda-forge scikit-image pandas tifffile pyqt h5py xmltodict`
 
 Startup
 
-* activate the conde environment `conda activate um2bs`
+* activate the conda environment `conda activate um2bs`
 * in the `um2bs` folder execute `python um2bs_gui.py`
 
 ## Ultramicroscope: acquistion, file names etc. 
