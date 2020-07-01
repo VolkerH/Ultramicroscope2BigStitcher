@@ -149,7 +149,9 @@ class um_mosaic_folder:
                 converters={"stagexyz": conv_strvector_to_np},
             )
         else:
-            print("Tiles.txt not found")
+            print("Error: Tiles.txt not found. That file should have been produced"
+                    "by the microscope software and contains the stage positions")
+            exit(-1)
 
     def _generate_project_folder(self, basefolder: str, projtype: str):
         projectfolder = pathlib.Path(basefolder) / pathlib.Path(projtype)
