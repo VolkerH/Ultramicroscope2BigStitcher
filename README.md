@@ -17,6 +17,7 @@ Create a python environment using `conda` and install dependencies (only needed 
 * Create a new conda environment `conda create -n um2bs python=3.6`
 * Activate the environment `conda activate um2bs`
 * `conda install -c conda-forge scikit-image pandas tifffile pyqt h5py xmltodict`
+* `pip install npy2bdv`
 
 Startup
 
@@ -50,7 +51,7 @@ Filtering files:
 * to consider all files ending in tif: [`.*.tif`](https://regex101.com/r/mP31CL/1)
 
 Extracting Metadata:
-* to extract the character following Ill: [`(?<=_Ill)[\da-zA-Z]+`](https://regex101.com/r/sk8w3u/1/)
+* To find the illumination direction, extract the character following Ill: [`(?<=_Ill)[\da-zA-Z]+`](https://regex101.com/r/sk8w3u/1/) . This will typically be _Left_ or _Right_. Added: I recently found out that sometimes the filenames don't contain `Ill`. In this case just try to match something else that is present and identical in each filename. 
 * look for the character sequence `_C` and extract the numbers following it: 
 [`(?<=_C)\d+`](https://regex101.com/r/HGR2iZ/1)
 
@@ -58,16 +59,17 @@ Extracting Metadata:
 
 * At the time of this writing, this code has only been tested on a few datasets.
 * Input checking and error handling is very limited. If you run into issues check the output on the console.
-* It is assumed that enough RAM (and or swap space) is available to hold a whole volume tile in memory. Out-of-core processing for extremely large tiles (or very limited RAM) could be added quite easily using `dask image`.
+* It is assumed that enough RAM (and or swap space) is available to hold a whole volume tile in memory. Out-of-core processing for extremely large tiles (or very limited RAM) could be added using `dask_image`.
 * No progress bar. Monitor progress by looking at the console output.
 
 ## Related Projects
 
 I wrote a similar tool for creating Big Stitcher projects from Leica Matrix Screener acquistions which can be found [here](https://github.com/VolkerH/LeicaMatrixScreener2BigStitcher).
 
-## Acknowledgements
+## Acknowledgements / Citation
 
-* Monash Micro Imaging.
-* I would like to thank my colleague Dr. Oleksandr Chernyavskiy from Monash Micro Imaging for providing sample data sets.
-* This tool leverages prior efforts by Talley Lambert and Nikita Valdimirov, namely [npy2bdv](https://github.com/nvladimus/npy2bdv) and [tifffolder](https://github.com/tlambert03/tifffolder). npy2bdv is bundled in this repo for easier distribution.
+* [Monash Micro Imaging](https://www.monash.edu/researchinfrastructure/mmi)
+* I would like to thank my colleague Dr. Oleksandr Chernyavskiy from Monash Micro Imaging for providing sample data sets and Dr. Jesse Di Cello for valuable user feedback.
+* This tool leverages prior efforts by Talley Lambert and Nikita Valdimirov, namely [imarispy](https://github.com/tlambert03/imarispy) and [npy2bdv](https://github.com/nvladimus/npy2bdv) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3971783.svg)](https://doi.org/10.5281/zenodo.3971783
+). 
 * [Big Stitcher from the Preibisch Lab](https://www.nature.com/articles/s41592-019-0501-0)
