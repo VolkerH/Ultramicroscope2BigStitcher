@@ -14,7 +14,7 @@ In a clean Python environment (this has been tested with Python 3.6 and 3.7.) us
 the following command for installation:
 
 ```
-python -m pip install git+https://github.com/VolkerH/Ultramicroscope2BigStitcher
+python -m pip install https://github.com/VolkerH/Ultramicroscope2BigStitcher/archive/master.zip
 ```
 
 If everything goes well, you should now be able to launch the application from the commandline by typing
