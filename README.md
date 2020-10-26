@@ -24,7 +24,7 @@ um2bs_gui
 ```
 
 
-## Alternative Installation with environment
+## Alternative installation with conda environment
 
 
 If for some reason the simple installation above fails you can set up a conda environment.
