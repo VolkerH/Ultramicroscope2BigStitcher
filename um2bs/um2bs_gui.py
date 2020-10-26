@@ -9,8 +9,8 @@
 # edu
 
 from PyQt5 import QtWidgets, QtCore, QtGui
-from process_um_folder import um_mosaic_folder
-from background_worker import Worker, WorkerSignals
+from um2bs.process_um_folder import um_mosaic_folder
+from um2bs.background_worker import Worker, WorkerSignals
 import pathlib
 
 # To add progress bar https://riptutorial.com/pyqt5/example/29500/basic-pyqt-progress-bar
@@ -178,10 +178,14 @@ class UltraMicroscopeToBigStitcherGUI(QtWidgets.QDialog):
         print(self.processor.df)
         self.nr_files_found.setText(f"{len(self.processor.df)} files found")
 
-if __name__ == "__main__":
+def run():
     import sys
 
     app = QtWidgets.QApplication(sys.argv)
     form = UltraMicroscopeToBigStitcherGUI()
     form.show()
     app.exec_()
+
+
+if __name__ == "__main__":
+    run()
