@@ -46,9 +46,17 @@ Startup
 
 * The `um2bs` tool does not support the slide book file format. You need to set up your tile scan in a way that the files are written as `tif` files.
 * File name structure. I only had a limited number of datasets for testing. However, from what I observed the file naming of the Ultramicroscope software is very inconsistent (some might say it is broken). Depending on the options that are chosen during acquisition (multi channel vs single channel, number of illumination directions, etc.) sometimes the channel number in the filename refers to the Z slice or the channel could actually be encoded in the illumination direction.
-* The folder with the images should also contain a file called `Tiles.txt`. This file contains the stage positions.
+* The folder with the images should also contain a file called `tiles.txt`. This file contains the stage positions.
 * I could not find any metadata about physical dimensions of the pixel spacing in XY or the spacing between Z planes. It is thus important that you note down these values
 somewhere.
+
+Make sure you generate the tile information during acquisition:
+
+1. Go to `Autosave settings`
+1. Go to `Advanced settings`
+1. In the dialog, select `Create Tile Info`
+1. You may have to rename the tile info file to `tiles.txt` and place it into the folder with the images manually. 
+![advanced settings screenshot](./illustrations/tiles.png)
 
 ## Usage
 
