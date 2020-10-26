@@ -8,8 +8,26 @@
 stacks in their correct position.
 
 
-## Installation & Start
+## Simple Installation & Start
 
+In a clean Python environment (this has been tested with Python 3.6 and 3.7.) use 
+the following command for installation:
+
+```
+python -m pip install git+https://github.com/Ultramicroscope2BigStitcher
+```
+
+If everything goes well, you should now be able to launch the application from the commandline by typing
+
+```
+um2bs_gui
+```
+
+
+## Alternative Installation with environment
+
+
+If for some reason the simple installation above fails you can set up a conda environment.
 Create a python environment using `conda` and install dependencies (only needed once.)
 
 * Install anaconda/miniconda
