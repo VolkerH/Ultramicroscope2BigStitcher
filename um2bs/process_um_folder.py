@@ -257,15 +257,6 @@ class um_mosaic_folder:
         for tile_nr, (grname, group) in enumerate(grouped_stacks):
             print(f"Processing {tile_nr+1} out of {ntiles}:")
             stack = readstack(group["pathname"].values, convertto=np.int16)
-            # clip values in order to not make Big Stitcher crash
-            # this may no longer be necessary with a more recent
-            # versoin of npy2bv but have not tested (TODO)
-            if np.any(stack > 32767) or np.any(stack < 0):
-                warnings.warn(
-                    "greyvalues outside supported range detected. Will be clipped !",
-                    UserWarning,
-                )
-                np.clip(stack, 0, 32767, out=stack)
 
             print("finished reading stack")
             xyz = group["stagexyz"].values[0]
